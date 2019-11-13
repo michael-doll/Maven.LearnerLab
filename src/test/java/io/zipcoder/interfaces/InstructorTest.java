@@ -41,6 +41,7 @@ public class InstructorTest {
         String name = "Archie";
         Long id = Long.MIN_VALUE;
         Double lectureHours = 10.;
+        Double expected = 5.;
         Instructor instructor = new Instructor(id,name);
         Student[] students = new Student[2];
        students[0] = new Student(Long.MIN_VALUE,"Toby");
@@ -51,7 +52,9 @@ public class InstructorTest {
         Double studyTime2 = students[1].getTotalStudyTime();
 
 
-        Assert.assertEquals(studyTime1, studyTime2);
+        Assert.assertEquals(studyTime1, expected);
+        Assert.assertEquals(studyTime1, expected);
+
 
     }
 }
