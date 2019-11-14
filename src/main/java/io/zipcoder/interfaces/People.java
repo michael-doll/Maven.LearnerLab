@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class People implements Iterable {
+public class People<E> implements Iterable<E> {
     private List<Person> personList = new ArrayList<Person>();
     Iterator<Person> iter = personList.iterator();
 
@@ -46,11 +46,8 @@ public class People implements Iterable {
         return (Person[]) personList.toArray();
     }
 
-    public Iterator iterator() {
-            while (iter.hasNext()){
-            iter.next();
-        }
-            return null;
+    public Iterator<E> iterator() {
+            return (Iterator<E>) personList.iterator();
     }
 
 }

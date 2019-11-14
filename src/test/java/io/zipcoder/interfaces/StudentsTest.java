@@ -9,15 +9,26 @@ import static org.junit.Assert.*;
 
 public class StudentsTest {
     @Test
-    public void testGetInstance(){
+    public void testGetInstance2(){
         Students students = Students.getInstance();
+        Student expected = new Student(Long.MAX_VALUE ,"Gretchen");
+        Student expected2 = new Student(Long.MAX_VALUE-1,"Alfred");
+        Student expected3 = new Student(Long.MAX_VALUE -2,"Gertrude" );
 
-        for (int i = 0; i <34 ; i++) {
-           students.add(new Student(i,"student" + i));
-        }
-        Integer expected = 34;
-        Integer actual = Students.getInstance().count();
+        students.add(expected);
+        students.add(expected2);
+        students.add(expected3);
+
+        Person actual = students.findById(Long.MAX_VALUE);
+        Person actual2 = students.findById(Long.MAX_VALUE-1);
+        Person actual3 = students.findById(Long.MAX_VALUE-2);
+
         Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected2,actual2);
+        Assert.assertEquals(expected3,actual3);
+
+
     }
+
 
 }

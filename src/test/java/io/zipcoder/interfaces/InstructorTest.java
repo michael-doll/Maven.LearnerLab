@@ -49,7 +49,7 @@ public class InstructorTest {
 
         instructor.lecture(students,lectureHours);
         Double studyTime1 = students[0].getTotalStudyTime();
-        Double studyTime2 = students[1].getTotalStudyTime();
+//        Double studyTime2 = students[1].getTotalStudyTime();
 
 
         Assert.assertEquals(studyTime1, expected);

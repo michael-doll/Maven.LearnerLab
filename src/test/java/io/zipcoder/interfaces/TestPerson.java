@@ -25,9 +25,7 @@ public class TestPerson {
         person.setName(expectedName);
 
         String actualName = person.getName();
-        Long actualId = person.getId();
         Assert.assertEquals(expectedName, actualName);
-
     }
 
 }
