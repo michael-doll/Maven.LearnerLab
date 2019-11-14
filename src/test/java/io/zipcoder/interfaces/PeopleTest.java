@@ -3,6 +3,8 @@ package io.zipcoder.interfaces;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class PeopleTest {
@@ -56,5 +58,16 @@ public class PeopleTest {
         Integer actual = people.count();
 
         Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void testToArray(){
+        People people = new People();
+        Person expectedPerson = new Person(Long.MIN_VALUE, "Bilbo");
+        people.add(expectedPerson);
+
+        Object[] personArr = people.toArray();
+        Person actualPerson = (Person) personArr[0];
+
+        Assert.assertEquals(expectedPerson, actualPerson);
     }
 }

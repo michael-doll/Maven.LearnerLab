@@ -39,15 +39,13 @@ public class People<E> implements Iterable<E> {
     public void removeAll(){
         personList.clear();
     }
+
     public Integer count(){
         return personList.size();
     }
-    public Person[] toArray(){
-        return (Person[]) personList.toArray();
-    }
 
-    public Iterator<E> iterator() {
-            return (Iterator<E>) personList.iterator();
-    }
+    public Object[] toArray(){ return  personList.toArray(); }
+
+    public Iterator<E> iterator() { return (Iterator<E>) personList.iterator();}
 
 }
