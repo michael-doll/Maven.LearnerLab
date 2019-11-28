@@ -19,4 +19,18 @@ public class TestZipCodeWilmington {
         }
     }
 
+    @Test
+    public void testHostLectureEducator(){
+        ZipCodeWilmington zcw = new ZipCodeWilmington();
+        int hours = 100;
+        zcw.hostLecture(Educator.ROBERTO,hours);
+
+        Map<Student,Double> map = zcw.getStudyMap();
+
+        for(Student student : map.keySet()){
+            Assert.assertEquals(25,student.getTotalStudyTime(),.01);
+        }
+        Assert.assertEquals(hours, Educator.ROBERTO.getHoursWorked(),.01);
+    }
+
 }

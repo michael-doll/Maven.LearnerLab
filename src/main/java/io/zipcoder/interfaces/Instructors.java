@@ -6,6 +6,7 @@ public final class Instructors extends People<Instructor> {
         super.add(new Instructor(Long.MAX_VALUE,"F" ));
         super.add(new Instructor(Long.MAX_VALUE -1,"R"));
         super.add(new Instructor(Long.MAX_VALUE -2,"C"));
+
     }
     public static Instructors getInstance() {
         return INSTANCE;
@@ -17,6 +18,6 @@ public final class Instructors extends People<Instructor> {
         for(Object instructor : INSTANCE){
             returnArray[count++] = (Instructor) instructor;
         }
-        return new Instructor[0];
+        return returnArray;
     }
 }
