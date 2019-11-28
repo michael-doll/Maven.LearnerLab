@@ -8,15 +8,15 @@ import java.util.List;
 //     class People<E> implements Iterable<E> {
     public abstract class People<E extends Person> implements Iterable{
 
-    private List<Person> personList = new ArrayList<Person>();
+    private List<E> personList = new ArrayList<E>();
 //    Iterator<Person> iterator = personList.iterator();
 
-    public void add(Person person){
+    public void add(E person){
         personList.add(person);
     }
 
-    public Person findById(Long id){
-        for(Person p : personList){
+    public E findById(Long id){
+        for(E p : personList){
             if(p.getId()==id){
                 return p;
             }

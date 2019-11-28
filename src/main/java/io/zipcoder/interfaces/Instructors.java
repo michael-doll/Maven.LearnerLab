@@ -12,6 +12,11 @@ public final class Instructors extends People<Instructor> {
     }
 
     public Instructor[] toArray() {
+        Instructor[] returnArray = new Instructor[getInstance().count()];
+        int count = 0;
+        for(Object instructor : INSTANCE){
+            returnArray[count++] = (Instructor) instructor;
+        }
         return new Instructor[0];
     }
 }
