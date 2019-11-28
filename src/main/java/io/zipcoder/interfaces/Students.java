@@ -1,14 +1,20 @@
 package io.zipcoder.interfaces;
 
- public class Students extends People {
+import sun.jvm.hotspot.oops.Instance;
+
+public final class Students extends People<Student> {
      private static final Students INSTANCE = new Students();
      private Students() {
-//        INSTANCE.add(new Person(Long.MAX_VALUE,"Alfred" ));
-//        INSTANCE.add(new Person(Long.MAX_VALUE -1,"Gretchen"));
-//        INSTANCE.add(new Person(Long.MAX_VALUE -2,"Gertrude"));
+        super.add(new Student(Long.MAX_VALUE,"Alfred" ));
+        super.add(new Student(Long.MAX_VALUE -1,"Gretchen"));
+        super.add(new Student(Long.MAX_VALUE -2,"Gertrude"));
      }
      public static Students getInstance() {
          return INSTANCE;
      }
 
-}
+     public Student[] toArray() {
+         return new Student[0];
+     }
+
+ }

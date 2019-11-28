@@ -12,23 +12,28 @@ public class ZipCodeWilmington {
     //The class should define a method hostLecture which makes use of a long id, double numberOfHours parameter to identify a respective Instructor to host a lecture to the composite personList field in the cohort reference
     //The class should define a method getStudyMap which returns a new instance of a mapping from Student objects to Double objects, representative of each respective student's totalStudyTime
 
-   private static Students students = Students.getInstance();
-   private static Instructors instructors = Instructors.getInstance();
+   private static Students students;
+   private static Instructors instructors;
 
    //
-    public ZipCodeWilmington(){}
+    public ZipCodeWilmington(){
+        students = Students.getInstance();
+        instructors = Instructors.getInstance();
+    }
     public void hostLecture(Teacher teacher, double numberOfHours){
-        teacher.lecture((Learner[]) students.toArray(), numberOfHours);
+        teacher.lecture(students.toArray(), numberOfHours);
     }
-    public void hostLecture(Long id, double numberOfHours){
+
+    public void hostLecture(long id, double numberOfHours){
         Teacher teacher = (Teacher) Instructors.getInstance().findById(id);
-        teacher.lecture((Learner[]) students.toArray(), numberOfHours);
+        teacher.lecture(students.toArray(), numberOfHours);
     }
-    public Map getStudyMap(){
-        Map<Student,Double> studyMap = new HashMap<Student, Double>();
-        for(int i =0 ;i < students.count(); i++){
-            Learner current = (Learner) students.findById((long) i);
-            studyMap.put((Student) current,current.getTotalStudyTime());
+
+    public Map<Student, Double> getStudyMap() {
+        Map<Student, Double> studyMap = new HashMap<Student, Double>();
+        for (int i = 0; i < students.count(); i++) {
+            Learner current = (Learner) students.findById(Long.MAX_VALUE -i);
+            studyMap.put((Student) current, current.getTotalStudyTime());
         }
         return studyMap;
     }

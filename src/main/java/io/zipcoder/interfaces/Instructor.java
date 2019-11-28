@@ -7,8 +7,8 @@ public class Instructor  extends Person implements Teacher {
         super(id, name);
     }
 
-    public void teach(Learner learner, double numbeOfHours) {
-        learner.learn(numbeOfHours);
+    public void teach(Learner learner, double numberOfHours) {
+        learner.learn(numberOfHours);
     }
 
     public void lecture(Learner[] learners, double numberOfHours) {

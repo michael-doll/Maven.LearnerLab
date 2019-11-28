@@ -5,9 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class People<E> implements Iterable<E> {
+//     class People<E> implements Iterable<E> {
+    public abstract class People<E extends Person> implements Iterable{
+
     private List<Person> personList = new ArrayList<Person>();
-    Iterator<Person> iter = personList.iterator();
+//    Iterator<Person> iterator = personList.iterator();
 
     public void add(Person person){
         personList.add(person);
@@ -44,8 +46,8 @@ public class People<E> implements Iterable<E> {
         return personList.size();
     }
 
-    public Object[] toArray(){ return  personList.toArray(); }
+    public abstract E[] toArray();
 
-    public Iterator<E> iterator() { return (Iterator<E>) personList.iterator();}
+    public Iterator iterator() { return (Iterator) this.personList.iterator();}
 
 }

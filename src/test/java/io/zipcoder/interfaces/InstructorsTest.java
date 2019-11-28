@@ -6,23 +6,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class InstructorsTest {
-    @Test public void tesGetInstance() {
+    @Test
+    public void testGetInstance() {
         Instructors instructors = Instructors.getInstance();
-        for (int i = 0; i <4 ; i++) {
-        instructors.add(new Instructor(i,"Instructor" + i));
-        }
 
-        Integer expected = 4;
-        Integer actual = Instructors.getInstance().count();
+        Integer expected = 3;
+        Integer actual = instructors.count();
 
         Assert.assertEquals(expected,actual);
     }
-//    @Test
-//    public void InstructorTest(){
-//        Integer expected = 4;
-//        Integer actual = Instructors.getInstance().count();
-//        Assert.assertEquals(expected, actual);
-//    }
-
-
 }
